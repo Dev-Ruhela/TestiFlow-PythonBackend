@@ -25,7 +25,7 @@ app = FastAPI()
 # Enable CORS for all origins, especially localhost for your frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # You can restrict it to only your frontend origin
+    allow_origins=["https://testiflow.onrender.com"],  # You can restrict it to only your frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
