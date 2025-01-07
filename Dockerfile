@@ -1,23 +1,23 @@
-
-# Use an official Python runtime as a parent image
-FROM python:3.10
+# Use the official Python 3.10 image
+FROM python:3.10-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Copy requirements.txt and install dependencies
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
+# Install pip and upgrade
+RUN pip install --no-cache-dir --upgrade pip
 
-# Install dependencies
+# Install dependencies from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
+# Copy the rest of the application code
 COPY . .
 
-# Expose port 8000 for the FastAPI app
+# Expose the FastAPI default port
 EXPOSE 8000
 
-# Run the FastAPI app using Uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Command to run the application using Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
