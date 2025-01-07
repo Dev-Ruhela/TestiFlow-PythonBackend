@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+groq
+python-dotenv
+beautifulsoup4
+requests
+asyncio
+logging
+re
